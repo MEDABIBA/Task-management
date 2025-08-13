@@ -38,7 +38,6 @@
 
   &__nav {
     display: grid;
-    gap: 6px;
   }
 
   &__item {
@@ -91,24 +90,4 @@
 }
 .active .sidebar__icon {
   color: var(--sb-accent);
-}
-
-@media (max-width: 1024px) {
-  .sidebar { 
-    &__wrapper {
-      width: 72px; 
-      padding: 12px 6px; 
-    }
-  
-    &__item { 
-      grid-template-columns: 1fr; 
-      justify-items: center; 
-      padding: 10px 0; 
-
-      &___label { 
-        display: none; 
-      }
-    }
-    .active::after { right: 0; }
-  }
 }
