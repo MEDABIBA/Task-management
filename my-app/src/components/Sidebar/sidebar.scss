@@ -1,0 +1,114 @@
+
+:root {
+  --sb-bg: #ffffff;
+  --sb-surface: #f6f7f8;
+  --sb-text: #6b7280;
+  --sb-text-strong: #333843;
+  --sb-accent: #ff7a1a;
+  --sb-accent-soft: #fff4ec;
+  --sb-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.sidebar {
+  &__wrapper {
+    width: 320px;
+    background: var(--sb-bg);
+    border-radius: 18px;
+    padding: 14px 0px 14px 0px;
+    box-shadow: var(--sb-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__logoBox {
+    margin: 4px 10px 6px;
+    height: 64px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+  }
+
+  &__logo {
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--sb-text-strong);
+    letter-spacing: .3px;
+  } 
+
+  &__nav {
+    display: grid;
+    gap: 6px;
+  }
+
+  &__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: center;
+    gap: 10px;
+
+    padding: 20px;
+
+    color: var(--sb-text);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+
+
+    &__icon {
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+    &__label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    &:hover {
+      background: #f3f5f7;
+    }
+  }
+}
+
+.active {
+  background: var(--sb-accent-soft);
+  color: var(--sb-accent);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 4px;
+    height: 100%;
+    background: var(--sb-accent);
+  }
+}
+.active .sidebar__icon {
+  color: var(--sb-accent);
+}
+
+@media (max-width: 1024px) {
+  .sidebar { 
+    &__wrapper {
+      width: 72px; 
+      padding: 12px 6px; 
+    }
+  
+    &__item { 
+      grid-template-columns: 1fr; 
+      justify-items: center; 
+      padding: 10px 0; 
+
+      &___label { 
+        display: none; 
+      }
+    }
+    .active::after { right: 0; }
+  }
+}

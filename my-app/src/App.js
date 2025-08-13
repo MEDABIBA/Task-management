@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import DashboardPage from "./pages/Dashboard";
+import ProjectsPage from "./pages/Projects";
+import MyTasksPage from "./pages/MyTasks";
+import CalendarPage from "./pages/Calendar";
+import TimeManagePage from "./pages/TimeManage";
+import SettingsPage from "./pages/Settings";
 
-function App() {
+import styles from "./App.scss";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/my-tasks" element={<MyTasksPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/time-manage" element={<TimeManagePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
