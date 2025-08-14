@@ -4,12 +4,9 @@
   padding: 40px;
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 24px;
+  gap: 40px;
 }
 
-.main {
-  /* сюди кладеш топбар і весь контент дашборда */
-}
-@media (max-width: 1024px) {
-  .wrap { grid-template-columns: 72px 1fr; padding: 16px; gap: 16px; }
-}
+// .main {
+//   /* сюди кладеш топбар і весь контент дашборда */
+// }

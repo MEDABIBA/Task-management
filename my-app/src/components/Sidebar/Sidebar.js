@@ -3,6 +3,7 @@ import { LuLayoutDashboard, LuFolder, LuSquareCheck, LuCalendar,
          LuClock3, LuSettings } from "react-icons/lu";
          
 import styles from "./sidebar.scss";
+import Logo from '../../assets/icons/logo.svg'
 
 const items = [
   { to: "/",            label: "Dashboard",  icon: <LuLayoutDashboard /> },
@@ -17,7 +18,7 @@ const Sidebar = () => {
   return (
       <aside className="sidebar__wrapper">
         <div className="sidebar__logoBox">
-          <div className="sidebar__logo">LΞ</div>
+          <img src={Logo} alt='Logo' className="sidebar__logo"/>
         </div>
 
         <nav className="sidebar__nav">

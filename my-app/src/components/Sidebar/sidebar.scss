@@ -14,7 +14,7 @@
     width: 320px;
     background: var(--sb-bg);
     border-radius: 18px;
-    padding: 14px 0px 14px 0px;
+    padding-bottom: 14px;
     box-shadow: var(--sb-shadow);
     display: flex;
     flex-direction: column;
@@ -22,8 +22,7 @@
   }
 
   &__logoBox {
-    margin: 4px 10px 6px;
-    height: 64px;
+    padding: 40px 0 60px 0;
     border-radius: 14px;
     display: grid;
     place-items: center;
@@ -57,20 +56,24 @@
     transition: background .15s ease, color .15s ease, box-shadow .15s ease;
 
 
-    &__icon {
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-    }
-    &__label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .4px;
-      text-transform: uppercase;
-    }
+    
+
     &:hover {
       background: #f3f5f7;
     }
+  }
+  &__icon {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    text-transform: uppercase;
   }
 }
 
