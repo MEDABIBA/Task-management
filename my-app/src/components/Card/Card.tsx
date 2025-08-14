@@ -1,4 +1,12 @@
-const Card = ({ children, classes = "" }) => {
+import { ReactNode } from "react";
+
+const Card = ({
+  children,
+  classes = "",
+}: {
+  children: ReactNode;
+  classes: string;
+}) => {
   return (
     <div
       className={`card ${
