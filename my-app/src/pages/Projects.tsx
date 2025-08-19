@@ -1,11 +1,5 @@
-import AppLayout from "../layouts/AppLayout";
-
-const Dashboard = () => {
-  return (
-    <AppLayout>
-      <h1>Контент буде тут</h1>
-    </AppLayout>
-  );
+const Projects = () => {
+  return <h1>Контент буде тут</h1>;
 };
 
-export default Dashboard;
+export default Projects;
