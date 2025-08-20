@@ -1,5 +1,11 @@
+import Layout from "../layout/Layout";
+
 const Settings = () => {
-  return <h1>Контент буде тут</h1>;
+  return(
+      <Layout>
+          <h1>Контент буде тут</h1>;
+      </Layout>
+  ) 
 };
 
 export default Settings;

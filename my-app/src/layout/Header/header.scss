@@ -1,0 +1,7 @@
+@use "../../styles/abstracts/variables" as *;
+
+.header {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #d1d1d1;
+    height: $header-height;
+}
