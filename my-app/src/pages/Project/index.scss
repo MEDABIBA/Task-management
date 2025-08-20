@@ -1,0 +1,135 @@
+.container {
+  justify-content: center;
+  margin: 0 80px;
+  padding: 20px 60px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.header {
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  min-height: 80px;
+  padding: 0 24px;
+  justify-content: space-between;
+  border: 1px solid #e2e8f0;
+  .left-side {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    .back {
+      margin: 0 20px 0 0;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+    }
+    &-block {
+      &-h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      &-text {
+        font-size: 14px;
+        opacity: 0.6;
+      }
+    }
+  }
+  .right-side {
+    align-content: center;
+    display: flex;
+    .button {
+      &-edit {
+        background-color: #0f172a;
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 14px;
+      }
+      &-delete {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 14px;
+        opacity: 0.9;
+        background-color: #fff;
+        color: #0f172a;
+        border: 1px solid #e2e8f0;
+      }
+    }
+  }
+}
+.main {
+  margin-top: 25px;
+  min-height: 100vh;
+  .info {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    .progress-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &-text {
+        margin-top: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        opacity: 0.7;
+      }
+    }
+    .all-tasks {
+      display: grid;
+      place-items: center;
+      gap: 5px;
+      font-size: 14px;
+      opacity: 0.8;
+      &-total {
+        margin-bottom: 10px;
+        text-align: center;
+        &-number {
+          font-size: 36px;
+          font-weight: 600;
+        }
+      }
+    }
+    .all-members {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+      &-total {
+        margin-bottom: 10px;
+        &-number {
+          font-size: 36px;
+          font-weight: 600;
+        }
+      }
+      &-add {
+      }
+    }
+    .deadline {
+      text-align: center;
+      &-text {
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.8;
+        margin-bottom: 15px;
+      }
+      &-data {
+        display: grid;
+        gap: 5px;
+        font-weight: 600;
+        &-remain {
+          font-size: 12px;
+          font-weight: 400;
+          color: sandybrown;
+        }
+      }
+    }
+  }
+}
