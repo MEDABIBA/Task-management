@@ -6,18 +6,19 @@ import { FcOk } from "react-icons/fc";
 import { FcMediumPriority } from "react-icons/fc";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
+import { HiPencil } from "react-icons/hi";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import CircularProgress, {
-  CircularProgressProps,
-} from "@mui/material/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./index.scss";
 
+// MAKE A SHADOW FOR CONTAINER ELEMENTS
+
 const Project = () => {
   return (
-    <>
+    <div className="project">
       <header className="header">
         <div className="left-side">
           <GoArrowLeft className="back" />
@@ -27,7 +28,7 @@ const Project = () => {
           </div>
         </div>
         <Stack direction="row" spacing={2} className="right-side">
-          <Button className="button-edit" variant="contained">
+          <Button className="buttons" variant="contained">
             <span>{<BsClipboard2PlusFill />} Редактировать</span>
           </Button>
           <Button className="button-delete" variant="contained">
@@ -111,8 +112,49 @@ const Project = () => {
             </div>
           </section>
         </div>
+        <div className="container">
+          <section className="description">
+            <div className="description-header">
+              <h2 className="description-header-title">Описание проекта</h2>
+              <HiPencil
+                size={25}
+                opacity={0.6}
+                className="description-header-icon"
+                onClick={() => {}}
+              />
+            </div>
+
+            <p className="description-text">
+              Разработка современного веб-приложения для управления задачами с
+              функционалом создания проектов, назначения задач, отслеживания
+              прогресса и совместной работы команды. Приложение должно включать
+              интуитивный интерфейс, систему уведомлений и возможность
+              интеграции с внешними сервисами.
+            </p>
+          </section>
+        </div>
+        <div className="container-for-tasks-and-members">
+          <section className="tasks-and-members">
+            <div className="tasks">
+              <div className="tasks-header">
+                <h2>Задачи проекта</h2>{" "}
+                <Button className="buttons" variant="contained">
+                  Новая задача
+                </Button>
+              </div>
+            </div>
+            <div className="members">
+              <div className="members-header">
+                <h2>Участники</h2>{" "}
+                <Button className="buttons" variant="contained">
+                  Добавить
+                </Button>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
-    </>
+    </div>
   );
 };
 

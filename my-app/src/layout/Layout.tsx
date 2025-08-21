@@ -8,13 +8,13 @@ import "./layout.scss";
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <div className="layout">
-        <Header/>
-        <div className="main">
-            <Sidebar />
-            <main>{children}</main>
-        </div>
+      <Header />
+      <div className="layout-main">
+        <Sidebar />
+        <main>{children}</main>
+      </div>
     </div>
   );
-}
+};
 
 export default Layout;

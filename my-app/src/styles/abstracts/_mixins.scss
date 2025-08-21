@@ -1,3 +1,19 @@
+@use "./variables";
+
 @mixin flex-center($gap: 0) {
-  display: flex; align-items: center; justify-content: center; gap: $gap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+@mixin inter-family($size: 14px, $weght: 400) {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weght;
+  font-style: normal;
+  font-size: $size;
+}
+@mixin button() {
+  background-color: variables.$bg-dark;
+  @include inter-family(14px, 600);
 }

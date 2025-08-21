@@ -2,11 +2,10 @@
 
 .layout {
   min-height: 100vh;
-  background: #efefef; 
-}
-
-.main {
+  background: #efefef;
+  &-main {
     display: flex;
     gap: 40px;
     height: calc(100vh - $header-height);
+  }
 }

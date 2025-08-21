@@ -1,135 +1,181 @@
-.container {
-  justify-content: center;
-  margin: 0 80px;
-  padding: 20px 60px;
-  background-color: #fff;
-  border-radius: 5px;
-}
-.header {
-  display: flex;
-  background-color: #fff;
-  align-items: center;
-  min-height: 80px;
-  padding: 0 24px;
-  justify-content: space-between;
-  border: 1px solid #e2e8f0;
-  .left-side {
+@use "../../styles/index.scss";
+.project {
+  .buttons {
+    @include index.button;
+  }
+  .container {
+    justify-content: center;
+    margin: 40px 240px;
+    padding: 40px 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    min-height: min-content;
+  }
+  .container-for-tasks-and-members {
+    min-height: min-content;
+    justify-content: center;
+    margin: 40px 240px;
+  }
+  .header {
     display: flex;
+    background-color: #fff;
     align-items: center;
-    margin-bottom: 5px;
-    .back {
-      margin: 0 20px 0 0;
-      cursor: pointer;
-      height: 30px;
-      width: 30px;
-    }
-    &-block {
-      &-h2 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 5px;
-      }
-      &-text {
-        font-size: 14px;
-        opacity: 0.6;
-      }
-    }
-  }
-  .right-side {
-    align-content: center;
-    display: flex;
-    .button {
-      &-edit {
-        background-color: #0f172a;
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        font-size: 14px;
-      }
-      &-delete {
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        font-size: 14px;
-        opacity: 0.9;
-        background-color: #fff;
-        color: #0f172a;
-        border: 1px solid #e2e8f0;
-      }
-    }
-  }
-}
-.main {
-  margin-top: 25px;
-  min-height: 100vh;
-  .info {
-    display: grid;
-    grid-auto-flow: column;
+    min-height: 80px;
+    padding: 0 24px;
     justify-content: space-between;
-    align-items: center;
-    .progress-bar {
+    border: 1px solid #e2e8f0;
+    .left-side {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      &-text {
-        margin-top: 16px;
-        font-size: 14px;
-        font-weight: 600;
-        opacity: 0.7;
+      margin-bottom: 5px;
+      .back {
+        margin: 0 20px 0 0;
+        cursor: pointer;
+        height: 30px;
+        width: 30px;
       }
-    }
-    .all-tasks {
-      display: grid;
-      place-items: center;
-      gap: 5px;
-      font-size: 14px;
-      opacity: 0.8;
-      &-total {
-        margin-bottom: 10px;
-        text-align: center;
-        &-number {
-          font-size: 36px;
+      &-block {
+        &-h2 {
+          font-size: 24px;
           font-weight: 600;
+          margin-bottom: 5px;
+        }
+        &-text {
+          font-size: 14px;
+          opacity: 0.6;
         }
       }
     }
-    .all-members {
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-size: 14px;
-      opacity: 0.8;
-      &-total {
-        margin-bottom: 10px;
-        &-number {
-          font-size: 36px;
-          font-weight: 600;
+    .right-side {
+      align-content: center;
+      display: flex;
+      .button {
+        &-edit {
+          @include index.button;
+        }
+        &-delete {
+          @include index.inter-family(14px, 600);
+          opacity: 0.9;
+          background-color: #fff;
+          color: index.$bg-dark;
+          border: 1px solid #e2e8f0;
         }
       }
-      &-add {
-      }
     }
-    .deadline {
-      text-align: center;
-      &-text {
-        font-size: 12px;
-        font-weight: 400;
-        opacity: 0.8;
-        margin-bottom: 15px;
+  }
+  .main {
+    margin: 40px 0;
+    min-height: 100vh;
+    .info {
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      align-items: center;
+      .progress-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &-text {
+          margin-top: 16px;
+          font-size: 14px;
+          font-weight: 600;
+          opacity: 0.7;
+        }
       }
-      &-data {
+      .all-tasks {
         display: grid;
+        place-items: center;
         gap: 5px;
-        font-weight: 600;
-        &-remain {
+        font-size: 14px;
+        opacity: 0.8;
+        &-total {
+          margin-bottom: 10px;
+          text-align: center;
+          &-number {
+            font-size: 36px;
+            font-weight: 600;
+          }
+        }
+      }
+      .all-members {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.8;
+        &-total {
+          margin-bottom: 10px;
+          &-number {
+            font-size: 36px;
+            font-weight: 600;
+          }
+        }
+      }
+      .deadline {
+        text-align: center;
+        &-text {
           font-size: 12px;
           font-weight: 400;
-          color: sandybrown;
+          opacity: 0.8;
+          margin-bottom: 15px;
+        }
+        &-data {
+          display: grid;
+          gap: 5px;
+          font-weight: 600;
+          &-remain {
+            font-size: 12px;
+            font-weight: 400;
+            color: sandybrown;
+          }
         }
       }
+    }
+  }
+  .description {
+    &-header {
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      &-title {
+        // @include
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+      }
+      &-icon {
+        cursor: pointer;
+        transition: opacity 1s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    &-text {
+      font-size: 16px;
+      opacity: 0.6;
+    }
+  }
+  .tasks-and-members {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+
+    .tasks {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px 40px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .members {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px 40px;
+      font-weight: 600;
+      font-size: 18px;
     }
   }
 }
