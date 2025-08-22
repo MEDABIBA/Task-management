@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProfileSettings from "./TabsSettings/ProfileSettings";
 import SecuritySettings from "./TabsSettings/SecuritySettings";
 // import ElementSettings from './TabsSettings/ElementSettings'
@@ -10,18 +11,20 @@ const settingsTabs = [
   {name: 'Security', links:'/setings/security', component: <SecuritySettings/>},
 ]
 const BaseSettings = () => {
-    const links = settingsTabs.forEach(link => {
-        return(
-            <li className="settings__link">{link.name}</li>
-        )
-    })
+    const [activeTab, setActiveTab] = useState(settingsTabs[0]!.name);
 
     return(
         <div className="settings">
             <PageWrapper name="Settings" descr="Manage your account and application preferences">
                 <ul className="settings__links">   
-                    <li className="settings__link settings__link-active">Profile</li>
-                    <li className="settings__link">Security</li>
+                    {settingsTabs.map(tab => (
+                        <li
+                            key={tab.name}
+                            className={`settings__link ${activeTab === tab.name ? "settings__link-active" : ""}`}
+                            onClick={() => setActiveTab(tab.name)}>
+                            {tab.name}
+                        </li>
+                    ))}
                     <span className="underline"></span>
                 </ul>
 
