@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Tasks from "./pages/Tasks";
 import Projects from "./pages/Projects/Projects";
-import Settings from "./pages/Settings";
+import Settings from "./pages/SettingsP/Settings";
 
 import styles from "./App.scss";
 import Project from "./pages/Project/Project";

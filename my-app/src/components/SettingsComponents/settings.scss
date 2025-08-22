@@ -1,0 +1,31 @@
+@use "../../styles/index.scss";
+
+.settings {
+    height: 100%;
+
+    &__links {
+        display: flex;
+        margin-top: 40px;
+        font-size: 20px;
+        gap: 30px;
+        border-bottom: 1px solid #e5e7eb; /* світло-сіра лінія */
+        padding-bottom: 8px;
+        position: relative;
+    }
+    &__link {
+        color: #737373; 
+        cursor: pointer;
+        &-active {
+            color: black
+        }
+    }
+
+    .underline {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        height: 1px;
+        width: 60px;
+        background: #111827;
+    }
+}
