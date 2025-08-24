@@ -1,4 +1,3 @@
-import * as React from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { BsClipboard2PlusFill } from "react-icons/bs";
 import { BsTrash3Fill } from "react-icons/bs";
@@ -7,14 +6,16 @@ import { FcMediumPriority } from "react-icons/fc";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 import { HiPencil } from "react-icons/hi";
+import { LuPlus } from "react-icons/lu";
+import { BsCheck2Circle } from "react-icons/bs";
+import { BsCircle } from "react-icons/bs";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import avatar from "../../assets/images/login.jpg";
 import "./index.scss";
-
-// MAKE A SHADOW FOR CONTAINER ELEMENTS
 
 const Project = () => {
   return (
@@ -135,20 +136,259 @@ const Project = () => {
         </div>
         <div className="container-for-tasks-and-members">
           <section className="tasks-and-members">
-            <div className="tasks">
-              <div className="tasks-header">
-                <h2>Задачи проекта</h2>{" "}
+            <div className="wrapper">
+              <div className="wrapper-header">
+                <h2> Задачи проекта</h2>
                 <Button className="buttons" variant="contained">
-                  Новая задача
+                  <span
+                    style={{
+                      display: "grid",
+                      gridAutoFlow: "column",
+                      gap: "5px",
+                      alignItems: "center",
+                    }}>
+                    <LuPlus size={20} /> Новая задача
+                  </span>
                 </Button>
               </div>
+              <div className="tasks-main">
+                <nav>
+                  <ul className="nav">
+                    <li className="nav-elem">
+                      <button type="button" className="nav-elem-button-active">
+                        Все
+                      </button>
+                    </li>
+                    <li className="nav-elem">
+                      <button type="button" className="nav-elem-button">
+                        В работе
+                      </button>
+                    </li>
+                    <li className="nav-elem">
+                      <button type="button" className="nav-elem-button">
+                        Выполнено
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+                <ul className="tasks-main-list">
+                  <li className="tasks-main-elem">
+                    <BsCircle />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}>
+                      <div>
+                        <h3 className="tasks-main-elem-title">
+                          Создать дизайн главной страницы
+                        </h3>
+                        <p className="tasks-main-elem-text">
+                          Разработать макеты для десктопной и мобильной версии
+                        </p>
+                        <div style={{ display: "flex" }}>
+                          <button className="tasks-main-elem-status">
+                            В работе
+                          </button>{" "}
+                          <span className="tasks-main-elem-deadline">
+                            <FaCalendarAlt size={15} /> Срок: 20 янв 2025
+                          </span>
+                        </div>
+                      </div>
+
+                      <img
+                        src={avatar}
+                        alt="avatar"
+                        style={{
+                          height: "40px",
+                          width: "40px",
+                        }}
+                      />
+                    </div>
+                  </li>
+                  <li className="tasks-main-elem">
+                    <BsCheck2Circle color="green" />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}>
+                      <div>
+                        <h3 className="tasks-main-elem-title">
+                          Создать дизайн главной страницы
+                        </h3>
+                        <p className="tasks-main-elem-text">
+                          Разработать макеты для десктопной и мобильной версии
+                        </p>
+                        <div style={{ display: "flex" }}>
+                          <button className="tasks-main-elem-status">
+                            В работе
+                          </button>{" "}
+                          <span className="tasks-main-elem-deadline">
+                            <FaCalendarAlt size={15} /> Срок: 20 янв 2025
+                          </span>
+                        </div>
+                      </div>
+
+                      <img
+                        src={avatar}
+                        alt="avatar"
+                        style={{
+                          height: "40px",
+                          width: "40px",
+                        }}
+                      />
+                    </div>
+                  </li>
+                  {/* <li className="tasks-main-elem">
+                    <BsCircle />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}>
+                      <div>
+                        <h3 className="tasks-main-elem-title">
+                          Создать дизайн главной страницы
+                        </h3>
+                        <p className="tasks-main-elem-text">
+                          Разработать макеты для десктопной и мобильной версии
+                        </p>
+                        <div style={{ display: "flex" }}>
+                          <button className="tasks-main-elem-status">
+                            В работе
+                          </button>{" "}
+                          <span className="tasks-main-elem-deadline">
+                            <FaCalendarAlt size={15} /> Срок: 20 янв 2025
+                          </span>
+                        </div>
+                      </div>
+
+                      <img
+                        src={avatar}
+                        alt="avatar"
+                        style={{
+                          height: "40px",
+                          width: "40px",
+                        }}
+                      />
+                    </div>
+                  </li>
+                  <li className="tasks-main-elem">
+                    <BsCircle />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}>
+                      <div>
+                        <h3 className="tasks-main-elem-title">
+                          Создать дизайн главной страницы
+                        </h3>
+                        <p className="tasks-main-elem-text">
+                          Разработать макеты для десктопной и мобильной версии
+                        </p>
+                        <div style={{ display: "flex" }}>
+                          <button className="tasks-main-elem-status">
+                            В работе
+                          </button>{" "}
+                          <span className="tasks-main-elem-deadline">
+                            <FaCalendarAlt size={15} /> Срок: 20 янв 2025
+                          </span>
+                        </div>
+                      </div>
+
+                      <img
+                        src={avatar}
+                        alt="avatar"
+                        style={{
+                          height: "40px",
+                          width: "40px",
+                        }}
+                      />
+                    </div>
+                  </li> */}
+                </ul>
+              </div>
             </div>
-            <div className="members">
-              <div className="members-header">
-                <h2>Участники</h2>{" "}
+            <div className="wrapper">
+              <div className="wrapper-header">
+                <h2>Участники</h2>
                 <Button className="buttons" variant="contained">
-                  Добавить
+                  <span
+                    style={{
+                      display: "grid",
+                      gridAutoFlow: "column",
+                      gap: "5px",
+                      alignItems: "center",
+                    }}>
+                    <LuPlus size={20} /> Добавить
+                  </span>
                 </Button>
+              </div>
+              <div className="members-main">
+                <ul className="members-main-list">
+                  <li className="members-main-elem">
+                    <img
+                      src={avatar}
+                      alt="avatar"
+                      style={{
+                        height: "40px",
+                        width: "40px",
+                        marginRight: "15px",
+                      }}
+                    />
+                    <div>
+                      <div className="members-main-elem-name">Анна Петрова</div>
+                      <p className="members-main-elem-role">Project Manager</p>
+                    </div>
+                    <button className="members-main-elem-button">Админ</button>
+                  </li>
+                  <li className="members-main-elem">
+                    <img
+                      src={avatar}
+                      alt="avatar"
+                      style={{
+                        height: "40px",
+                        width: "40px",
+                        marginRight: "15px",
+                      }}
+                    />
+                    <div>
+                      <div className="members-main-elem-name">Анна Петрова</div>
+                      <p className="members-main-elem-role">Project Manager</p>
+                    </div>
+                    <button className="members-main-elem-button">
+                      Участник
+                    </button>
+                  </li>
+                  <li className="members-main-elem">
+                    <img
+                      src={avatar}
+                      alt="avatar"
+                      style={{
+                        height: "40px",
+                        width: "40px",
+                        marginRight: "15px",
+                      }}
+                    />
+                    <div>
+                      <div className="members-main-elem-name">
+                        Михаил Иванов
+                      </div>
+                      <p className="members-main-elem-role">
+                        Frontend developer
+                      </p>
+                    </div>
+                    <button className="members-main-elem-button">
+                      Участник
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </section>
