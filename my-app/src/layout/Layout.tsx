@@ -11,7 +11,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Header />
       <div className="layout-main">
         <Sidebar />
-        <main>{children}</main>
+        <main  className="layout-right">{children}</main>
       </div>
     </div>
   );

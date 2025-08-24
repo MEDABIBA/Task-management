@@ -5,7 +5,12 @@
   background: #efefef;
   &-main {
     display: flex;
-    gap: 40px;
-    height: calc(100vh - $header-height);
+    max-width: 100%;
+    height: calc(
+      100vh - $header-height
+    ); // Breaks the web interface in project part
+  }
+  &-right {
+    max-width: 100%;
   }
 }
