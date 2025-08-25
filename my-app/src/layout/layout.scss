@@ -1,16 +1,15 @@
 @use "../styles/abstracts/variables" as *;
 
 .layout {
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Full screen
+  min-width: min-content; // Correcting the width in lower screens
   background: #efefef;
+
   &-main {
+    flex: 1 1 auto;
     display: flex;
-    max-width: 100%;
-    height: calc(
-      100vh - $header-height
-    ); // Breaks the web interface in project part
-  }
-  &-right {
-    max-width: 100%;
+    width: 100%;
   }
 }

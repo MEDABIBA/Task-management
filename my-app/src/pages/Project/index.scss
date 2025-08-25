@@ -1,4 +1,7 @@
 @use "../../styles/index.scss";
+.none {
+  display: none !important;
+}
 .project {
   .buttons {
     @include index.button;
@@ -6,7 +9,7 @@
   .container {
     justify-content: center;
     margin: 40px 200px;
-    padding: 40px 40px;
+    padding: 40px;
     background-color: #fff;
     border-radius: 15px;
     min-height: min-content;
@@ -15,6 +18,13 @@
     @include index.down(xxl) {
       margin: 40px 140px;
     }
+    @include index.down(xl) {
+      margin: 40px 80px;
+      padding: 25px;
+    }
+    @include index.down(lg) {
+      margin: 40px 80px;
+    }
   }
 
   .container-for-tasks-and-members {
@@ -22,9 +32,17 @@
     min-height: min-content;
     justify-content: center;
     margin: 40px 0;
+    @include index.down(xxl) {
+      max-width: 970px;
+    }
+    @include index.down(xl) {
+      max-width: 970px;
+      margin: 0 80px;
+    }
   }
   .header {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     background-color: #fff;
     align-items: center;
     min-height: 80px;
@@ -32,6 +50,11 @@
     padding: 0 24px;
     justify-content: space-between;
     border: 1px solid index.$border-color;
+    @include index.down(lg) {
+      min-height: min-content;
+      gap: 10px;
+      padding: 10px 24px;
+    }
     .left-side {
       display: flex;
       align-items: center;
@@ -57,6 +80,10 @@
     .right-side {
       align-content: center;
       display: flex;
+      @include index.down(lg) {
+        flex-direction: column;
+        gap: 10px;
+      }
       .button {
         &-edit {
           @include index.button;
@@ -79,10 +106,26 @@
     .info {
       display: grid;
       gap: 180px;
-      width: 100%;
+      min-width: 100%;
       grid-auto-flow: column;
       justify-content: space-between;
       align-items: center;
+      @include index.down(xxl) {
+        gap: 100px;
+      }
+      @include index.down(xl) {
+        gap: 40px !important;
+      }
+      @include index.down(lg) {
+        gap: 40px;
+      }
+      @include index.down(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include index.down(md) {
+        grid-auto-flow: row;
+        gap: 40px;
+      }
       .progress-bar {
         display: flex;
         flex-direction: column;
@@ -146,12 +189,17 @@
     }
   }
   .description {
+    @include index.down(xl) {
+      max-width: 680px;
+    }
+    @include index.down(lg) {
+      max-width: 600px;
+    }
     &-header {
       display: grid;
       grid-auto-flow: column;
       justify-content: space-between;
       &-title {
-        // @include
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 25px;
@@ -174,7 +222,16 @@
     grid-auto-flow: column;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
+    margin: 0 auto;
+    justify-content: center;
 
+    @include index.down(xl) {
+      max-width: 850px;
+    }
+    @include index.down(lg) {
+      grid-auto-flow: row;
+      grid-template-columns: auto;
+    }
     .wrapper {
       background-color: #fff;
       border-radius: 10px;
@@ -182,6 +239,9 @@
       font-weight: 600;
       font-size: 18px;
       border: 1px solid index.$border-color;
+      @include index.down(lg) {
+        max-width: 650px;
+      }
       &-header {
         display: grid;
         grid-auto-flow: column;
@@ -219,6 +279,7 @@
         &-list {
           display: grid;
           gap: 10px;
+          overflow: scroll;
         }
         &-elem {
           display: flex;
@@ -259,9 +320,12 @@
       }
       .members-main {
         &-list {
-          display: grid;
+          display: flex;
+          flex-direction: column;
           gap: 10px;
           margin: 0 20px;
+          overflow: scroll;
+          min-width: 320px;
         }
         &-elem {
           display: grid;
