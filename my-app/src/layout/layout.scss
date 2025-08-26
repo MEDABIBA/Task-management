@@ -3,13 +3,17 @@
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; // Full screen
+  height: 100%;
+
   min-width: min-content; // Correcting the width in lower screens
   background: #efefef;
 
   &-main {
     flex: 1 1 auto;
     display: flex;
+    width: 100%;
+  }
+  &-right {
     width: 100%;
   }
 }

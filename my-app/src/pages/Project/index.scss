@@ -3,6 +3,7 @@
   display: none !important;
 }
 .project {
+  width: 100%;
   .buttons {
     @include index.button;
   }
@@ -14,7 +15,7 @@
     border-radius: 15px;
     min-height: min-content;
     border: 1px solid index.$border-color;
-    max-width: 1920px;
+    max-width: 1100px;
     @include index.down(xxl) {
       margin: 40px 140px;
     }
@@ -32,12 +33,15 @@
     min-height: min-content;
     justify-content: center;
     margin: 40px 0;
+    margin-bottom: 50px;
     @include index.down(xxl) {
       max-width: 970px;
+      margin-bottom: 50px;
     }
     @include index.down(xl) {
       max-width: 970px;
       margin: 0 80px;
+      margin-bottom: 50px;
     }
   }
   .header {
@@ -279,7 +283,6 @@
         &-list {
           display: grid;
           gap: 10px;
-          overflow: scroll;
         }
         &-elem {
           display: flex;
@@ -324,7 +327,6 @@
           flex-direction: column;
           gap: 10px;
           margin: 0 20px;
-          overflow: scroll;
           min-width: 320px;
         }
         &-elem {
