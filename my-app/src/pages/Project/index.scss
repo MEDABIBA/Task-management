@@ -5,7 +5,7 @@
 .project {
   width: 100%;
   .buttons {
-    @include index.button;
+    @include index.button-black;
   }
   .container {
     justify-content: center;
@@ -90,7 +90,7 @@
       }
       .button {
         &-edit {
-          @include index.button;
+          @include index.button-black;
         }
         &-delete {
           @include index.inter-family(14px, 600);
