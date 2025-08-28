@@ -31,10 +31,10 @@ const Project = () => {
             </div>
           </div>
           <Stack direction="row" spacing={2} className="right-side">
-            <Button className="buttons" variant="contained">
+            <Button className="button-black" variant="contained">
               <span>{<BsClipboard2PlusFill />} Редактировать</span>
             </Button>
-            <Button className="button-delete" variant="contained">
+            <Button className="button-white" variant="contained">
               <span>{<BsTrash3Fill />} Удалить</span>
             </Button>
           </Stack>
@@ -141,7 +141,7 @@ const Project = () => {
               <div className="wrapper">
                 <div className="wrapper-header">
                   <h2> Задачи проекта</h2>
-                  <Button className="buttons" variant="contained">
+                  <Button className="button-black" variant="contained">
                     <span
                       style={{
                         display: "grid",
@@ -252,7 +252,7 @@ const Project = () => {
               <div className="wrapper">
                 <div className="wrapper-header">
                   <h2>Участники</h2>
-                  <Button className="buttons" variant="contained">
+                  <Button className="button-black" variant="contained">
                     <span
                       style={{
                         display: "grid",

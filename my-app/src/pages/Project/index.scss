@@ -4,8 +4,11 @@
 }
 .project {
   width: 100%;
-  .buttons {
+  .button-black {
     @include index.button-black;
+  }
+  .button-white {
+    @include index.button-white;
   }
   .container {
     justify-content: center;

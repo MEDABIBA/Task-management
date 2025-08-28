@@ -7,7 +7,7 @@ import avatar from "../../assets/images/login.jpg";
 import Button from "@mui/material/Button";
 
 import "./settings.scss";
-
+// MAKE apperance-theme-elem-header-button-active THROUGH A INPUT TAG
 const settingsTabs = [
   {
     name: "Profile",
@@ -69,6 +69,8 @@ const BaseSettings = () => {
                   <input
                     type="text"
                     className=" input profile-info-form-name-first-input"
+                    id="first-name"
+                    name="first-name"
                   />
                 </div>
                 <div className="profile-info-form-name-last">
@@ -76,16 +78,28 @@ const BaseSettings = () => {
                   <input
                     type="text"
                     className=" input profile-info-form-name-last-input"
+                    id="last-name"
+                    name="last-name"
                   />
                 </div>
               </div>
               <div className="profile-info-form-section">
                 <p className="profile-info-form-title">Email Adress</p>
-                <input type="text" className=" input profile-info-form-email" />
+                <input
+                  type="email"
+                  className=" input profile-info-form-email"
+                  id="email"
+                  name="email"
+                />
               </div>
               <div className="profile-info-form-section">
                 <p className="profile-info-form-title">Bio</p>
-                <input type="text" className=" input profile-info-form-bio" />
+                <textarea
+                  placeholder="Tell us about yourself..."
+                  className=" input profile-info-form-bio"
+                  autoCorrect="on"
+                  maxLength={600}
+                  name="bio"></textarea>
               </div>
             </form>
             <div className="profile-info-button">
@@ -93,6 +107,36 @@ const BaseSettings = () => {
               <Button className="button-black" variant="contained">
                 Save Changes
               </Button>
+            </div>
+          </div>
+        </section>
+        <section className="apperance">
+          <div className="container">
+            <h2 className="apperance-title">Apperance</h2>
+            <div className="apperance-theme">
+              <p className="apperance-theme-title">Theme</p>
+              <ul className="apperance-theme-list">
+                <li className="apperance-theme-elem-active">
+                  <div className="apperance-theme-elem-header">
+                    <span>Light</span>
+                    <button className="apperance-theme-elem-header-button-active"></button>
+                  </div>
+                  <div className="apperance-theme-elem-skeleton-white">
+                    <div className="apperance-theme-elem-skeleton-white-first"></div>
+                    <div className="apperance-theme-elem-skeleton-white-second"></div>
+                  </div>
+                </li>
+                <li className="apperance-theme-elem">
+                  <div className="apperance-theme-elem-header">
+                    <span>Light</span>
+                    <button className="apperance-theme-elem-header-button"></button>
+                  </div>
+                  <div className="apperance-theme-elem-skeleton-black">
+                    <div className="apperance-theme-elem-skeleton-black-first"></div>
+                    <div className="apperance-theme-elem-skeleton-black-second"></div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
