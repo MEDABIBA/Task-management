@@ -7,21 +7,41 @@ import avatar from "../../assets/images/login.jpg";
 import Button from "@mui/material/Button";
 
 import "./settings.scss";
-// MAKE apperance-theme-elem-header-button-active THROUGH A INPUT TAG
+// MAKE appearance-theme-elem-header-button-active THROUGH A INPUT TAG
 const settingsTabs = [
   {
     name: "Profile",
-    links: "/setings/profile",
+    links: "/settings/profile",
     component: <ProfileSettings />,
   },
   {
     name: "Security",
-    links: "/setings/security",
+    links: "/settings/security",
     component: <SecuritySettings />,
   },
 ];
 const BaseSettings = () => {
   const [activeTab, setActiveTab] = useState(settingsTabs[0]!.name);
+  const [theme, setTheme] = useState("light");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    bio: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSaveChanges = () => {
+    // Handle save logic here
+    console.log("Saving changes:", formData);
+  };
 
   return (
     <div className="settings">
@@ -62,78 +82,107 @@ const BaseSettings = () => {
                 </Button>
               </div>
             </div>
-            <form className="profile-info-form">
+            <form className="profile-info-form" onSubmit={(e) => e.preventDefault()}>
               <div className="profile-info-form-name">
                 <div className="profile-info-form-name-first">
-                  <p className="profile-info-form-title">First Name</p>
+                  <label htmlFor="first-name" className="profile-info-form-title">First Name</label>
                   <input
                     type="text"
-                    className=" input profile-info-form-name-first-input"
+                    className="input profile-info-form-name-first-input"
                     id="first-name"
                     name="first-name"
                   />
                 </div>
                 <div className="profile-info-form-name-last">
-                  <p className="profile-info-form-title">First Name</p>
+                  <label htmlFor="last-name" className="profile-info-form-title">Last Name</label>
                   <input
                     type="text"
-                    className=" input profile-info-form-name-last-input"
+                    className="input profile-info-form-name-last-input"
                     id="last-name"
                     name="last-name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
               <div className="profile-info-form-section">
-                <p className="profile-info-form-title">Email Adress</p>
+                <label htmlFor="email" className="profile-info-form-title">Email Address</label>
                 <input
                   type="email"
-                  className=" input profile-info-form-email"
+                  className="input profile-info-form-email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="profile-info-form-section">
-                <p className="profile-info-form-title">Bio</p>
+                <label htmlFor="bio" className="profile-info-form-title">Bio</label>
                 <textarea
                   placeholder="Tell us about yourself..."
-                  className=" input profile-info-form-bio"
+                  className="input profile-info-form-bio"
+                  id="bio"
+                  name="bio"
+                  value={formData.bio}
+                  onChange={handleInputChange}
                   autoCorrect="on"
                   maxLength={600}
-                  name="bio"></textarea>
+                />
               </div>
             </form>
             <div className="profile-info-button">
-              {" "}
-              <Button className="button-black" variant="contained">
+              <Button 
+                className="button-black" 
+                variant="contained"
+                onClick={handleSaveChanges}
+              >
                 Save Changes
               </Button>
             </div>
           </div>
         </section>
-        <section className="apperance">
+        <section className="appearance">
           <div className="container">
-            <h2 className="apperance-title">Apperance</h2>
-            <div className="apperance-theme">
-              <p className="apperance-theme-title">Theme</p>
-              <ul className="apperance-theme-list">
-                <li className="apperance-theme-elem-active">
-                  <div className="apperance-theme-elem-header">
+            <h2 className="appearance-title">Appearance</h2>
+            <div className="appearance-theme">
+              <p className="appearance-theme-title">Theme</p>
+              <ul className="appearance-theme-list">
+                <li 
+                  className={`appearance-theme-elem ${theme === 'light' ? 'appearance-theme-elem-active' : ''}`}
+                  onClick={() => setTheme('light')}
+                >
+                  <div className="appearance-theme-elem-header">
                     <span>Light</span>
-                    <button className="apperance-theme-elem-header-button-active"></button>
+                    <button 
+                      className={`appearance-theme-elem-header-button ${theme === 'light' ? 'appearance-theme-elem-header-button-active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTheme('light');
+                      }}
+                    />
                   </div>
-                  <div className="apperance-theme-elem-skeleton-white">
-                    <div className="apperance-theme-elem-skeleton-white-first"></div>
-                    <div className="apperance-theme-elem-skeleton-white-second"></div>
+                  <div className="appearance-theme-elem-skeleton-white">
+                    <div className="appearance-theme-elem-skeleton-white-first"></div>
+                    <div className="appearance-theme-elem-skeleton-white-second"></div>
                   </div>
                 </li>
-                <li className="apperance-theme-elem">
-                  <div className="apperance-theme-elem-header">
-                    <span>Light</span>
-                    <button className="apperance-theme-elem-header-button"></button>
+                <li 
+                  className={`appearance-theme-elem ${theme === 'dark' ? 'appearance-theme-elem-active' : ''}`}
+                  onClick={() => setTheme('dark')}
+                >
+                  <div className="appearance-theme-elem-header">
+                    <span>Dark</span>
+                    <button 
+                      className={`appearance-theme-elem-header-button ${theme === 'dark' ? 'appearance-theme-elem-header-button-active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTheme('dark');
+                      }}
+                    />
                   </div>
-                  <div className="apperance-theme-elem-skeleton-black">
-                    <div className="apperance-theme-elem-skeleton-black-first"></div>
-                    <div className="apperance-theme-elem-skeleton-black-second"></div>
+                  <div className="appearance-theme-elem-skeleton-black">
+                    <div className="appearance-theme-elem-skeleton-black-first"></div>
+                    <div className="appearance-theme-elem-skeleton-black-second"></div>
                   </div>
                 </li>
               </ul>
