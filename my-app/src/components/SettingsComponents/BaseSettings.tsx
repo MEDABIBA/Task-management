@@ -1,10 +1,9 @@
 import { useState } from "react";
 import ProfileSettings from "./TabsSettings/ProfileSettings";
-import SecuritySettings from "./TabsSettings/SecuritySettings";
 // import ElementSettings from './TabsSettings/ElementSettings'
-import PageWrapper from "../PageWrappper/PageWrapper";
-import avatar from "../../assets/images/login.jpg";
 import Button from "@mui/material/Button";
+import avatar from "../../assets/images/login.jpg";
+import PageWrapper from "../PageWrappper/PageWrapper";
 
 import "./settings.scss";
 // MAKE appearance-theme-elem-header-button-active THROUGH A INPUT TAG
@@ -14,11 +13,11 @@ const settingsTabs = [
     links: "/settings/profile",
     component: <ProfileSettings />,
   },
-  {
-    name: "Security",
-    links: "/settings/security",
-    component: <SecuritySettings />,
-  },
+  // {
+  //   name: "Security",
+  //   links: "/settings/security",
+  //   component: <SecuritySettings />,
+  // },
 ];
 const BaseSettings = () => {
   const [activeTab, setActiveTab] = useState(settingsTabs[0]!.name);
@@ -30,11 +29,13 @@ const BaseSettings = () => {
     bio: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -82,10 +83,16 @@ const BaseSettings = () => {
                 </Button>
               </div>
             </div>
-            <form className="profile-info-form" onSubmit={(e) => e.preventDefault()}>
+            <form
+              className="profile-info-form"
+              onSubmit={(e) => e.preventDefault()}>
               <div className="profile-info-form-name">
                 <div className="profile-info-form-name-first">
-                  <label htmlFor="first-name" className="profile-info-form-title">First Name</label>
+                  <label
+                    htmlFor="first-name"
+                    className="profile-info-form-title">
+                    First Name
+                  </label>
                   <input
                     type="text"
                     className="input profile-info-form-name-first-input"
@@ -94,7 +101,11 @@ const BaseSettings = () => {
                   />
                 </div>
                 <div className="profile-info-form-name-last">
-                  <label htmlFor="last-name" className="profile-info-form-title">Last Name</label>
+                  <label
+                    htmlFor="last-name"
+                    className="profile-info-form-title">
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     className="input profile-info-form-name-last-input"
@@ -106,7 +117,9 @@ const BaseSettings = () => {
                 </div>
               </div>
               <div className="profile-info-form-section">
-                <label htmlFor="email" className="profile-info-form-title">Email Address</label>
+                <label htmlFor="email" className="profile-info-form-title">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   className="input profile-info-form-email"
@@ -117,7 +130,9 @@ const BaseSettings = () => {
                 />
               </div>
               <div className="profile-info-form-section">
-                <label htmlFor="bio" className="profile-info-form-title">Bio</label>
+                <label htmlFor="bio" className="profile-info-form-title">
+                  Bio
+                </label>
                 <textarea
                   placeholder="Tell us about yourself..."
                   className="input profile-info-form-bio"
@@ -131,11 +146,10 @@ const BaseSettings = () => {
               </div>
             </form>
             <div className="profile-info-button">
-              <Button 
-                className="button-black" 
+              <Button
+                className="button-black"
                 variant="contained"
-                onClick={handleSaveChanges}
-              >
+                onClick={handleSaveChanges}>
                 Save Changes
               </Button>
             </div>
@@ -147,17 +161,22 @@ const BaseSettings = () => {
             <div className="appearance-theme">
               <p className="appearance-theme-title">Theme</p>
               <ul className="appearance-theme-list">
-                <li 
-                  className={`appearance-theme-elem ${theme === 'light' ? 'appearance-theme-elem-active' : ''}`}
-                  onClick={() => setTheme('light')}
-                >
+                <li
+                  className={`appearance-theme-elem ${
+                    theme === "light" ? "appearance-theme-elem-active" : ""
+                  }`}
+                  onClick={() => setTheme("light")}>
                   <div className="appearance-theme-elem-header">
                     <span>Light</span>
-                    <button 
-                      className={`appearance-theme-elem-header-button ${theme === 'light' ? 'appearance-theme-elem-header-button-active' : ''}`}
+                    <button
+                      className={`appearance-theme-elem-header-button ${
+                        theme === "light"
+                          ? "appearance-theme-elem-header-button-active"
+                          : ""
+                      }`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setTheme('light');
+                        setTheme("light");
                       }}
                     />
                   </div>
@@ -166,17 +185,22 @@ const BaseSettings = () => {
                     <div className="appearance-theme-elem-skeleton-white-second"></div>
                   </div>
                 </li>
-                <li 
-                  className={`appearance-theme-elem ${theme === 'dark' ? 'appearance-theme-elem-active' : ''}`}
-                  onClick={() => setTheme('dark')}
-                >
+                <li
+                  className={`appearance-theme-elem ${
+                    theme === "dark" ? "appearance-theme-elem-active" : ""
+                  }`}
+                  onClick={() => setTheme("dark")}>
                   <div className="appearance-theme-elem-header">
                     <span>Dark</span>
-                    <button 
-                      className={`appearance-theme-elem-header-button ${theme === 'dark' ? 'appearance-theme-elem-header-button-active' : ''}`}
+                    <button
+                      className={`appearance-theme-elem-header-button ${
+                        theme === "dark"
+                          ? "appearance-theme-elem-header-button-active"
+                          : ""
+                      }`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setTheme('dark');
+                        setTheme("dark");
                       }}
                     />
                   </div>
