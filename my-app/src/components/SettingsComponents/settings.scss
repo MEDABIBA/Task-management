@@ -1,6 +1,10 @@
 @use "../../styles/index.scss";
 
 .settings {
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
   .button-black {
     @include index.button-black;
     text-transform: none;
