@@ -1,15 +1,12 @@
-import Layout from "../../layout/Layout";
 import BaseSettings from "../../components/SettingsComponents/BaseSettings";
-
-
-
+import Layout from "../../layout/Layout";
 
 const Settings = () => {
-  return(
-      <Layout>
-          <BaseSettings/>
-      </Layout>
-  ) 
+  return (
+    <Layout>
+      <BaseSettings />
+    </Layout>
+  );
 };
 
 export default Settings;

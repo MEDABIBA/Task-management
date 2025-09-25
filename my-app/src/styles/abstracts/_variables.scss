@@ -8,3 +8,15 @@ $bg-dark: #0f172a;
 
 $header-height: 60px;
 $sb-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+
+[data-theme="dark"] {
+  $bg-l: #000;
+  $sb-accent-l: #000;
+  $sb-accent-soft-l: #000;
+  $border-color: #000;
+
+  $bg-dark: #000;
+
+  $header-height: 60px;
+  $sb-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}

@@ -1,7 +1,15 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/index.scss";
 
-.header {
-    background-color: rgb(255, 255, 255);
+.app {
+  @include index.theme(index.$light-theme);
+  .header {
+    background-color: var(--layout-header-bg);
     border-bottom: 1px solid #d1d1d1;
     height: $header-height;
+  }
+}
+
+.app[data-theme="dark"] {
+  @include index.theme(index.$dark-theme);
 }

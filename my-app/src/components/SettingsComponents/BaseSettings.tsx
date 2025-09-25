@@ -1,11 +1,12 @@
+import Button from "@mui/material/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
-import ProfileSettings from "./TabsSettings/ProfileSettings";
-// import ElementSettings from './TabsSettings/ElementSettings'
-import Button from "@mui/material/Button";
 import avatar from "../../assets/images/login.jpg";
+import { useStore } from "../../stores/StoreContext";
 import PageWrapper from "../PageWrappper/PageWrapper";
+import ProfileSettings from "./TabsSettings/ProfileSettings";
 
+import { observer } from "mobx-react-lite";
 import "./settings.scss";
 // MAKE appearance-theme-elem-header-button-active THROUGH A INPUT TAG
 const settingsTabs = [
@@ -14,31 +15,13 @@ const settingsTabs = [
     links: "/settings/profile",
     component: <ProfileSettings />,
   },
-  // {
-  //   name: "Security",
-  //   links: "/settings/security",
-  //   component: <SecuritySettings />,
-  // },
 ];
-const BaseSettings = () => {
+
+const BaseSettings = observer(() => {
+  const { themeStore } = useStore();
+  const theme = themeStore.getTheme;
   const [activeTab, setActiveTab] = useState(settingsTabs[0]!.name);
-  const [theme, setTheme] = useState("light");
   const [bioLimit, setBioLimit] = useState(false);
-  // const [formData, setFormData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   bio: "",
-  // });
-
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
-
   return (
     <div className="settings">
       <PageWrapper name="Settings" descr="Manage your account and application preferences">
@@ -99,9 +82,6 @@ const BaseSettings = () => {
                 if (values.lastName.length > 1 && !/^(?=.*[A-Za-z]).+$/.test(values.lastName)) {
                   errors.lastName = "Invalid first name";
                 }
-                // if (values.bio.length === 600) {
-                //   errors.bio = "Character limit reached";
-                // }
                 return errors;
               }}
               onSubmit={(values, { setSubmitting }) => {
@@ -137,8 +117,6 @@ const BaseSettings = () => {
                         id="lastName"
                         name="lastName"
                         placeholder="Your last name"
-                        // value={formData.lastName}
-                        // onChange={handleInputChange}
                       />
                       <ErrorMessage name="lastName" component="div" className="error-message" />
                     </div>
@@ -153,8 +131,6 @@ const BaseSettings = () => {
                       id="email"
                       name="email"
                       placeholder="Your email"
-                      // value={formData.email}
-                      // onChange={handleInputChange}
                     />
                     <ErrorMessage name="email" component="div" className="error-message" />
                   </div>
@@ -199,7 +175,7 @@ const BaseSettings = () => {
               <ul className="appearance-theme-list">
                 <li
                   className={`appearance-theme-elem ${theme === "light" ? "appearance-theme-elem-active" : ""}`}
-                  onClick={() => setTheme("light")}>
+                  onClick={() => themeStore.setTheme("light")}>
                   <div className="appearance-theme-elem-header">
                     <span>Light</span>
                     <button
@@ -208,7 +184,7 @@ const BaseSettings = () => {
                       }`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setTheme("light");
+                        themeStore.setTheme("light");
                       }}
                     />
                   </div>
@@ -219,7 +195,7 @@ const BaseSettings = () => {
                 </li>
                 <li
                   className={`appearance-theme-elem ${theme === "dark" ? "appearance-theme-elem-active" : ""}`}
-                  onClick={() => setTheme("dark")}>
+                  onClick={() => themeStore.setTheme("dark")}>
                   <div className="appearance-theme-elem-header">
                     <span>Dark</span>
                     <button
@@ -228,7 +204,7 @@ const BaseSettings = () => {
                       }`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setTheme("dark");
+                        themeStore.setTheme("dark");
                       }}
                     />
                   </div>
@@ -244,6 +220,6 @@ const BaseSettings = () => {
       </PageWrapper>
     </div>
   );
-};
+});
 
 export default BaseSettings;

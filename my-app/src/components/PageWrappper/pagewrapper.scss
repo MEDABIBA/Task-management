@@ -1,14 +1,22 @@
-.page {
-    background-color: #fff;
+@use "../../styles/index.scss";
+
+.app {
+  @include index.theme(index.$light-theme);
+  .page {
+    background-color: var(--main-bg);
     height: 100%;
     padding: 20px;
 
     &__name {
-        font-size: 24px;
+      font-size: 24px;
     }
     &__descr {
-        font-size: 18px;
-        color: #737373;
-        margin-top: 6px;
+      font-size: 18px;
+      color: var(--descr);
+      margin-top: 6px;
     }
+  }
+}
+.app[data-theme="dark"] {
+  @include index.theme(index.$dark-theme);
 }

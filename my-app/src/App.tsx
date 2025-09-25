@@ -1,22 +1,27 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Tasks from "./pages/Tasks";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Projects from "./pages/Projects/Projects";
 import Settings from "./pages/SettingsP/Settings";
+import Tasks from "./pages/Tasks";
 
-import styles from "./App.scss";
+import { observer } from "mobx-react-lite";
 import Project from "./pages/Project/Project";
-
-export default function App() {
+import { useStore } from "./stores/StoreContext";
+const App = observer(() => {
+  const { themeStore } = useStore();
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/project" element={<Project />} />
-        <Route path="/my-tasks" element={<Tasks />} />
-        <Route path="/settings" element={<Settings />} />
+    <div className="app" data-theme={themeStore.getTheme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Projects />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/my-tasks" element={<Tasks />} />
+          <Route path="/settings" element={<Settings />} />
 
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
-}
+});
+
+export default App;

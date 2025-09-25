@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
+import ThemeStore from "./ThemeStore";
 class RootStore {
+  themeStore: ThemeStore;
   constructor() {
     makeAutoObservable(this);
-  }
-  getMessage() {
-    return "hello world";
+    this.themeStore = new ThemeStore();
   }
 }
 export const store = new RootStore();

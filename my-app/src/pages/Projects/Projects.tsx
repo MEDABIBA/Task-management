@@ -1,5 +1,7 @@
+import Layout from "../../layout/Layout";
+
 const Projects = () => {
-  return <h1>Контент буде тут</h1>;
+  return <Layout>Контент буде тут</Layout>;
 };
 
 export default Projects;
