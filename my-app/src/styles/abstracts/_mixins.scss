@@ -1,6 +1,12 @@
 @use "./variables";
+@use "./themes";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
+:root {
+  @include themes.theme(themes.$light-theme);
+}
+.app[data-theme="dark"] {
+  @include themes.theme(themes.$dark-theme);
+}
 @mixin flex-center($gap: 0) {
   display: flex;
   align-items: center;
@@ -15,17 +21,27 @@
   font-size: $size;
 }
 @mixin button-black() {
-  background-color: variables.$bg-dark;
+  background-color: var(--sb-accent-l);
+  color: var(--main-bg);
   @include inter-family(14px, 400);
   font-weight: 400;
   @include inter-family;
   text-transform: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  &:hover {
+    background-color: (var(--font-color));
+  }
 }
 @mixin button-white() {
-  background-color: #fff;
+  background-color: var(--main-bg);
+  color: var(--sb-accent-l);
+  border: 1px solid var(--border-color);
   @include inter-family(14px, 400);
-  color: variables.$sb-accent-l;
-  border: 1px solid variables.$sb-shadow;
   font-weight: 400;
   text-transform: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
 }

@@ -2,6 +2,7 @@
 .app {
   @include index.theme(index.$light-theme);
   .settings {
+    color: var(--font-color);
     .error-message {
       color: red;
       font-size: 14px;
@@ -50,7 +51,7 @@
       color: #737373;
       cursor: pointer;
       &-active {
-        color: black;
+        color: var(--font-color);
       }
     }
 
@@ -60,7 +61,7 @@
       left: 0;
       height: 1px;
       width: 60px;
-      background: #111827;
+      background: var(--font-color);
     }
     .profile-info {
       justify-content: center;
@@ -162,7 +163,7 @@
                 width: 20px;
                 height: 20px;
                 border-radius: 50px;
-                background-color: #000;
+                background-color: var(--font-color);
               }
             }
           }

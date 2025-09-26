@@ -4,7 +4,6 @@ import { useState } from "react";
 import avatar from "../../assets/images/login.jpg";
 import { useStore } from "../../stores/StoreContext";
 import PageWrapper from "../PageWrappper/PageWrapper";
-import ProfileSettings from "./TabsSettings/ProfileSettings";
 
 import { observer } from "mobx-react-lite";
 import "./settings.scss";
@@ -13,7 +12,6 @@ const settingsTabs = [
   {
     name: "Profile",
     links: "/settings/profile",
-    component: <ProfileSettings />,
   },
 ];
 

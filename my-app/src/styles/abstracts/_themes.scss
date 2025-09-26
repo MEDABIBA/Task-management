@@ -3,6 +3,7 @@ $light-theme: (
   layout-header-bg: rgb(255, 255, 255),
   main-bg: #fff,
   bg: #f1f5f9,
+  font-color: #000,
   sb-accent: #353535,
   sb-accent-soft: #d1d1d1,
   border: #e2e8f0,
@@ -13,26 +14,30 @@ $light-theme: (
 );
 
 $dark-theme: (
-  layout-bg: #000,
-  layout-header-bg: #000,
-  main-bg: #353535,
-  bg: #000,
-  sb-accent: #000,
-  sb-accent-soft: #000,
-  border: #000,
-  bg-dark: #000,
+  layout-bg: #0f172a,
+  layout-header-bg: #1e293b,
+  main-bg: #1a202c,
+  bg: #111827,
+  font-color: #fff,
+  sb-accent: #fff,
+  sb-accent-soft: #475569,
+  border: #334155,
+  bg-dark: #000000,
   header-height: 60px,
-  sb-shadow: 0 2px 10px rgba(0, 0, 0, 0.06),
-  descr: #737373,
+  sb-shadow: #fff,
+  descr: #9ca3af,
 );
+
 @mixin theme($theme-map) {
   --main-bg: #{map-get($theme-map, main-bg)};
   --layout-header-bg: #{map-get($theme-map, layout-header-bg)};
   --layout-bg: #{map-get($theme-map, layout-bg)};
   --bg-l: #{map-get($theme-map, bg)};
+  --font-color: #{map-get($theme-map, font-color)};
   --sb-accent-l: #{map-get($theme-map, sb-accent)};
   --sb-accent-soft-l: #{map-get($theme-map, sb-accent-soft)};
   --border-color: #{map-get($theme-map, border)};
   --bg-dark: #{map-get($theme-map, bg-dark)};
   --descr: #{map-get($theme-map, descr)};
+  --sb-shadow: #{map-get($theme-map, sb-shadow)};
 }

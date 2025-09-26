@@ -5,7 +5,7 @@
   @include index.theme(index.$light-theme);
   .header {
     background-color: var(--layout-header-bg);
-    border-bottom: 1px solid #d1d1d1;
+    border-bottom: 1px solid var(--sb-accent-soft-l);
     height: $header-height;
   }
 }

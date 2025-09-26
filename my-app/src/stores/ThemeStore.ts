@@ -10,12 +10,16 @@ class ThemeStore {
   }
 
   get getTheme() {
-    console.log(this.theme);
     return this.theme;
   }
-
+  @action isInLocalStorage() {
+    if (typeof localStorage.getItem("theme") !== null) {
+      this.theme = localStorage.getItem("theme") as Theme;
+    }
+  }
   @action setTheme(theme: Theme) {
     this.theme = theme;
+    localStorage.setItem("theme", theme);
   }
 }
 
